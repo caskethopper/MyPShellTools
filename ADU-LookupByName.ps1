@@ -3,7 +3,7 @@ $userlist = get-content c:\temp\Import-CSV.txt
 
 foreach ($user in $userlist){
   $filter = "displayname -eq ""$user"""
-  $userdetail = get-aduser -filter $filter -properties * -searchbase "ou=allusers,dc=cpcc,dc=edu" -searchscope 2
+  $userdetail = get-aduser -filter $filter -properties * -searchbase "ou=OU, dc=blah" -searchscope 2
 
   $dname = $userdetail.DisplayName
   $dname = $dname -replace "`t|`n|`r",""
